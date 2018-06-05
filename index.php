@@ -15,7 +15,5 @@
 			echo $echostr;
 		}
 	}
-
 	checkSignature()
-
 ?>
