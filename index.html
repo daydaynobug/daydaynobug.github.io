@@ -331,49 +331,49 @@
 		<div class="content">
 			<div class="tab-content" style="display: block;">
 				<img src="images/function-1.png" alt="">
-				<div class="">
+				<div class="tex-con">
 					<p>APP、公众号、H5多终端均为主流展现形式，阅读内容页、个人中心均可实现移动支付，流畅的阅读体验，实现营收</p>
 					<a href=""><div>免费体验</div></a>
 				</div>
 			</div>
 			<div class="tab-content">
 				<img src="images/function-2.png" alt="">
-				<div class="">
+				<div class="tex-con">
 					<p>结合会员免费书库、去广告、身份铭牌、专属活动等特权元素，打造完善的会员体系，助力用户沉淀</p>
 					<a href=""><div>免费体验</div></a>
 				</div>
 			</div>
 			<div class="tab-content">
 				<img src="images/function-3.png" alt="">
-				<div class="">
+				<div class="tex-con">
 					<p>支持公众号和App的分销，轻松生成推广链接分享好友，与渠道、代理合作，形成三级分销，渠道代理分红，快速获取流量，达到分裂式推广</p>
 					<a href=""><div>免费体验</div></a>
 				</div>
 			</div>
 			<div class="tab-content">
 				<img src="images/function-4.png" alt="">
-				<div class="">
+				<div class="tex-con">
 					<p>阅读小说章节和邀请好友都可以赚金币，金币可以兑换提现，仿趣头条、今日头条、七猫小说网赚模式疯狂裂变，低成本迅速裂变新增用户。</p>
 					<a href=""><div>免费体验</div></a>
 				</div>
 			</div>
 			<div class="tab-content">
 				<img src="images/function-5.png" alt="">
-				<div class="">
+				<div class="tex-con">
 					<p>新手任务、日常任务、邀请奖励等构成成熟的用户激励体系，实现激励式自主推广效果，提升用户留存</p>
 					<a href=""><div>免费体验</div></a>
 				</div>
 			</div>
 			<div class="tab-content">
 				<img src="images/function-6.png" alt="">
-				<div class="">
+				<div class="tex-con">
 					<p>支持开屏、信息流等多种广告形式，可接入指定广告平台，配合福利激励任务加强视频广告等收益，支持自定义图片广告，后台轻松配置，协同全面数据统计，实时掌控数据走向</p>
 					<a href=""><div>免费体验</div></a>
 				</div>
 			</div>
 			<div class="tab-content">
 				<img src="images/function-7.png" alt="">
-				<div class="">
+				<div class="tex-con">
 					<p>帮助解决版权改编问题，支持海外支付，拥有海外流量资源，支持国际化多语种版本及语言切换，全面面向海外市场</p>
 					<a href=""><div>免费体验</div></a>
 				</div>
@@ -665,7 +665,7 @@
 			$('.tab li').removeClass('active')
 			$('.tab li').eq(curIndex).addClass('active');
 			$('.tab-content').hide();
-			$('.tab-content').eq(curIndex).show();
+			$('.tab-content').eq(curIndex).fadeIn();
 		}
 		function stop(){
 			clearInterval(timmer)
@@ -673,14 +673,17 @@
 		$('.tab li').hover(function(){
 			stop()
 			if($(this).index()!=curIndex){
+				curIndex = $(this).index()
+				$(this).addClass('active');
+				$(this).siblings().removeClass('active');
 				$('.tab-content').hide();
-				$('.tab-content').eq($(this).index()).show();
+				$('.tab-content').eq($(this).index()).fadeIn();
 			}
 		},function(){
-			if($(this).index()!=curIndex){
-				$('.tab-content').hide();
-				$('.tab-content').eq(curIndex).show();
-			}
+			// if($(this).index()!=curIndex){
+			// 	$('.tab-content').hide();
+			// 	$('.tab-content').eq(curIndex).fadeIn();
+			// }
 		    init()
 		});
 		$('.tab-content').hover(function(){
@@ -688,13 +691,13 @@
 		},function(){
 		    init()
 		});
-		$('.tab li').click(function(event) {
-			curIndex = $(this).index()
-			$(this).addClass('active');
-			$(this).siblings().removeClass('active');
-			$('.tab-content').hide();
-			$('.tab-content').eq($(this).index()).show();
-		})
+		// $('.tab li').click(function(event) {
+		// 	curIndex = $(this).index()
+		// 	$(this).addClass('active');
+		// 	$(this).siblings().removeClass('active');
+		// 	$('.tab-content').hide();
+		// 	$('.tab-content').eq($(this).index()).show();
+		// })
 		init()
 		$('#to-function').click(function(){
 			$("html,body").animate({scrollTop:$("#function").offset().top-navHight},500)
