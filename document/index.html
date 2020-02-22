@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>免费阅读</title>
+    <title>文档</title>
     <link rel="stylesheet" href="../common/common.css">
     <link rel="stylesheet" href="../common/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -12,12 +12,11 @@
     <script src="../common/jquery.min.js"></script>
     <script src="../common/swiper.min.js"></script>
     <script src="../common/common.js"></script>
-</head>
 <body>
     <header>
     	<div class="container">
     		<div class="nav">
-    			<img src="../common/images/logo.png" alt="logo">
+    			<img src="../common/images/logo-b.png" alt="logo">
     			<div class="menu">
     				<ul class="list">
     					<li class="item"><a href="../index.html">首页</a></li>
@@ -27,7 +26,7 @@
 								<span class="fa fa-caret-up"></span>
 								<ul class="drop">
 									<li><a href="../payread/index.html">付费阅读</a></li>
-									<li class="active"><a href="../freeread/index.html">免费阅读</a></li>
+									<li><a href="../freeread/index.html">免费阅读</a></li>
 									<li><a href="../mixread/index.html">付费+免费阅读</a></li>
 									<li><a href="../internalread/index.html">国际化阅读</a></li>
 								</ul>
@@ -36,7 +35,7 @@
     					<li class="item"><a href="../price/index.html">价格</a></li>
     					<li class="item"><a href="../custom/index.html">定制</a></li>
     					<li class="item"><a href="../join/index.html">加盟</a></li>
-    					<li class="item"><a href="../document/index.html">文档</a></li>
+    					<li class="item active"><a href="../document/index.html">文档</a></li>
     					<li class="item"><a href="../about/index.html">关于我们</a></li>
     				</ul>
     				<a href=""><div class="button">免费体验</div></a>
@@ -44,20 +43,52 @@
     		</div>
     		<div class="banner">
     			<div class="des">
-    				<h1>数字阅读一站式服务</h1>
-    				<p>APP、公众号、H5三合一快速上线</p>
-    				<p>个性化定制，覆盖全行业需求</p>
-    				<div class="button-con">
-    					<a href=""><div class="button">免费体验</div></a>
-    					<a href=""><div class="button-no">视频演示</div></a>
-    				</div>
-    			</div>
-    			<div class="show">
-    				<img src="./images/banner-right.png" alt="">
+    				<h1>帮助中心</h1>
     			</div>
     		</div>
     	</div>
     </header>
+    
+    <section class="document" style="background: #F7F4F8">
+        <div class="container">
+            <div class="left">
+                <ul>
+                    <li class="active">软象简介<span class="line"></span></li>
+                    <li>常见问题<span class="line"></span></li>
+                    <li>产品介绍<span class="line"></span></li>
+                    <li>特色功能<span class="line"></span></li>
+                    <li>基础配置<span class="line"></span></li>
+                    <li>产品更新<span class="line"></span></li>
+                    <li>被窝动态<span class="line"></span></li>
+                    <li>版本记录<span class="line"></span></li>
+                </ul>
+            </div>
+            <div class="right">
+                <ul class="content">
+                    <li class="list" style="display: none">
+                        <ul></ul>
+                        <div id="page">
+                            <div class="page-tou"><img src="images/left-head.png" alt=""></div>
+                            <div class="page-prev"><img src="images/left.png" alt=""></div>
+                            <div class="page-content">
+                                <div class="item active">1</div>
+                                <div class="item">2</div>
+                                <div class="item">3</div>
+                                <div class="item">...</div>
+                                <div class="item">10</div>
+                            </div>
+                            <div class="page-next"><img src="images/right.png" alt=""></div>
+                            <div class="page-wei"><img src="images/right-mowei.png" alt=""></div>
+                        </div>
+                    </li>
+                    <li class="article">
+                        被窝读书，系软象团队推出的一站式移动阅读产品。支持APP、公众号、H5三端，小说、漫画、听书等内容可快速上线运营。支持应用定制，提供行业咨询、辅助运营等服务，旨在满足企业数字化阅读需求。
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
 
     <footer>
     	<div class="footer-nav">
@@ -100,13 +131,13 @@
     </footer>
     <div class="fixed">
     	<ul>
-    		<li><img class="not" src="common/images/fixed-1.png" alt=""><img class="select" src="common/images/fixed-1-s.png" alt=""></li>
+    		<li><img class="not" src="../common/images/fixed-1.png" alt=""><img class="select" src="../common/images/fixed-1-s.png" alt=""></li>
     		<li>
-    			<img class="not" src="common/images/fixed-2.png" alt=""><img class="select" src="common/images/fixed-2-s.png" alt="">
+    			<img class="not" src="../common/images/fixed-2.png" alt=""><img class="select" src="../common/images/fixed-2-s.png" alt="">
     			<div class="text phone">电话：13070187708</div>
     		</li>
     		<li id="back-top">
-    			<img class="not" src="common/images/fixed-3.png" alt=""><img class="select" src="common/images/fixed-3-s.png" alt="">
+    			<img class="not" src="../common/images/fixed-3.png" alt=""><img class="select" src="../common/images/fixed-3-s.png" alt="">
     			<div class="text top">返回顶部</div>
     		</li>
     	</ul>
@@ -114,8 +145,114 @@
 </body>
 </html>
 <script>
-	
-</script>
-<script>
-	
+    $(document).ready(function(){
+        var data={};
+        function init(category,page){
+            data.category = category
+            data.page = page
+            getArticleList(data.category,data.page)
+        };
+        function getArticleList(category,page){
+            $.ajax({
+                url:'http://localhost:3000/getArticleList?category='+category+'&page='+page,
+                type: "GET",
+                success:function(res){
+                    data.category=category
+                    data.page=page
+                    data.total = res.totalCount
+                    data.list = res.items
+                    initPage()
+                    rendList()
+                }
+            })
+        };
+        function rendList(){
+            var listHtml = ''
+            data.list.forEach(function(element){
+                listHtml+='<li><p>'+element.title+'</p><span>'+element.date+'</span></li>'
+            })
+            $('.document .right .content .list ul').html(listHtml)
+        };
+        function initPage(){
+            data.maxPage = Math.ceil(data.total/10)
+            console.log(data.maxPage)
+            rendPage()
+        }
+        function rendPage(isSclice){
+            var pageHtml = ''
+            if(data.maxPage>5){
+                if(data.maxPage-data.page>=5){
+                    for (var i = 0; i < 5; i++) {
+                        if(i<=2){
+                            pageHtml+='<div class="item '+(data.page==data.page+i?"active":"")+'">'+(data.page+i)+'</div>'
+                        }else if(i==3){
+                            pageHtml+='<div class="shenlue">...</div>'
+                        }else{
+                            pageHtml+='<div class="item">'+data.maxPage+'</div>'
+                        }
+                    }
+                }else{
+                    for (var i = 0; i < 5; i++) {
+                        pageHtml+='<div class="item '+(data.page==data.maxPage+i-4?"active":"")+'">'+(data.maxPage+i-4)+'</div>'
+                    }
+                }
+            }else{
+               for (var i = 0; i < data.maxPage; i++) {
+                    pageHtml+='<div class="item '+(data.page==i+1?"active":"")+'">'+(i+1)+'</div>'
+                }
+            }
+            $('#page .page-content').html(pageHtml)
+        }
+        $('.page-prev').click(function(){
+            data.page--
+            if(data.page<1){
+                data.page = 1
+            }else{
+                getArticleList(data.category,data.page)
+            }
+        })
+        $('.page-next').click(function(){
+            data.page++
+            if(data.page>data.maxPage){
+                data.page = data.maxPage
+            }else{
+                getArticleList(data.category,data.page)
+            }
+        })
+        $('.page-tou').click(function(){
+            if(data.page!=1){
+                data.page = 1
+                getArticleList(data.category,data.page)
+            }
+        })
+        $('.page-wei').click(function(){
+            if(data.page!=data.maxPage){
+                data.page = data.maxPage
+                getArticleList(data.category,data.page)
+            }
+        })
+
+        $("#page .page-content").on("click",".item",function () {
+            console.log($(this).text())
+            if($(this).text()!='...'&&data.page!=$(this).text()){
+                data.page=parseInt($(this).text())
+                getArticleList(data.category,data.page)
+            }
+        })
+        $(".document .left li").click(function(){
+            if($(this).index()!=0){
+                console.log($(this))
+                getArticleList($(this).index(),1)
+                $('.second-nav .menu li').removeClass('active')
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                $('.right .list').show()
+                $('.right .article').hide()
+            }else{
+                $('.right .list').hide()
+                $('.right .article').show()
+            }
+        })
+        init(1,3)
+    })
 </script>
