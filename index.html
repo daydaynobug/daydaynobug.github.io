@@ -48,8 +48,8 @@
     				<p>APP、公众号、H5三合一快速上线</p>
     				<p>个性化定制，覆盖全行业需求</p>
     				<div class="button-con">
-    					<a href=""><div class="button">免费体验</div></a>
-    					<a href=""><div class="button-no">视频演示</div></a>
+    					<div class="button shangqiao">免费体验</div>
+    					<div class="button-no">视频演示</div>
     				</div>
     			</div>
     			<div class="show">
@@ -58,7 +58,14 @@
     		</div>
     	</div>
     </header>
-	
+	   
+    <section class="video" style="display: none">
+    	<div class="back"></div>
+    	<div class="container">
+    		<video src="http://vfx.mtime.cn/Video/2019/03/19/mp4/190319212559089721.mp4" controls="controls"></video>
+    	</div>
+    </section>
+
 	<section class="second-nav" id="second-nav">
 		<div class="nav">
 			<div class="menu">
@@ -476,7 +483,7 @@
 					<p>全面满足业务需求</p>
 				</li>
 			</ul>
-			<a href=""><div class="see-more">查看详情</div></a>
+			<a href="./price/index.html"><div class="see-more">查看详情</div></a>
 		</div>
 	</section>
 	
@@ -570,9 +577,9 @@
     			<li class="item"><a href="#function">产品功能</a></li>
     			<li class="item"><a href="./price/index.html">产品定价</a></li>
     			<li class="item"><a href="./custom/index.html">定制服务</a></li>
-    			<li class="item"><a href="">免费升级</a></li>
-    			<li class="item"><a href="">版权合作</a></li>
-    			<li class="item"><a href="">7*24小时服务</a></li>
+    			<li class="item shangqiao"><a href="javascript:void(0)">免费升级</a></li>
+    			<li class="item shangqiao"><a href="javascript:void(0)">版权合作</a></li>
+    			<li class="item shangqiao"><a href="javascript:void(0)">7*24小时服务</a></li>
     		</ul>
     		<ul class="scenes">
     			<li class="tit">服务场景</li>
@@ -597,7 +604,7 @@
     </footer>
     <div class="fixed">
     	<ul>
-    		<li><img class="not" src="common/images/fixed-1.png" alt=""><img class="select" src="common/images/fixed-1-s.png" alt=""></li>
+    		<li class="shangqiao"><img class="not" src="common/images/fixed-1.png" alt=""><img class="select" src="common/images/fixed-1-s.png" alt=""></li>
     		<li>
     			<img class="not" src="common/images/fixed-2.png" alt=""><img class="select" src="common/images/fixed-2-s.png" alt="">
     			<div class="text phone">电话：13070187708</div>
@@ -636,6 +643,12 @@
 </script>
 <script>
 	$(document).ready(function () {
+		$('.button-no').click(function(){
+			$('.video').fadeIn()
+		})
+		$('.back').click(function(){
+			$('.video').hide()
+		})
 		var navTop = parseInt($("#second-nav").offset().top)
 		var navHight = parseInt($("#second-nav").height())
 		var aTop = parseInt($("#advantage").offset().top-2*navHight)

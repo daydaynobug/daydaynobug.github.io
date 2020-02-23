@@ -38,7 +38,7 @@
     					<li class="item active"><a href="../document/index.html">文档</a></li>
     					<li class="item"><a href="../about/index.html">关于我们</a></li>
     				</ul>
-    				<a href=""><div class="button">免费体验</div></a>
+    				<div class="button shangqiao">免费体验</div>
     			</div>
     		</div>
     		<div class="banner">
@@ -66,23 +66,38 @@
             <div class="right">
                 <ul class="content">
                     <li class="list" style="display: none">
-                        <ul></ul>
-                        <div id="page">
-                            <div class="page-tou"><img src="images/left-head.png" alt=""></div>
-                            <div class="page-prev"><img src="images/left.png" alt=""></div>
-                            <div class="page-content">
-                                <div class="item active">1</div>
-                                <div class="item">2</div>
-                                <div class="item">3</div>
-                                <div class="item">...</div>
-                                <div class="item">10</div>
+                        <div class="page">
+                            <ul></ul>
+                            <div id="page">
+                                <div class="page-tou"><img src="images/left-head.png" alt=""></div>
+                                <div class="page-prev"><img src="images/left.png" alt=""></div>
+                                <div class="page-content">
+                                    <div class="item active">1</div>
+                                    <div class="item">2</div>
+                                    <div class="item">3</div>
+                                    <div class="item">...</div>
+                                    <div class="item">10</div>
+                                </div>
+                                <div class="page-next"><img src="images/right.png" alt=""></div>
+                                <div class="page-wei"><img src="images/right-mowei.png" alt=""></div>
                             </div>
-                            <div class="page-next"><img src="images/right.png" alt=""></div>
-                            <div class="page-wei"><img src="images/right-mowei.png" alt=""></div>
+                        </div>
+                        <div class="detial" style="display: none">
+                            <div class="top">
+                                <p><i class="fa fa-angle-left"></i> 返回</p>
+                                <span>2018-12-28</span>
+                            </div>
+                            <div class="bot">
+                                <h4>版权问题如何解决</h4>
+                                <p>软象提供一定量的正版版权资源接入系统（需要和资源方签署分成合作协议）。同时配备多个行内资深专家提供免费答疑，介绍版权资源，进行行业交流，协助运营等服务。详情可联系客服。</p>
+                            </div>
                         </div>
                     </li>
                     <li class="article">
-                        被窝读书，系软象团队推出的一站式移动阅读产品。支持APP、公众号、H5三端，小说、漫画、听书等内容可快速上线运营。支持应用定制，提供行业咨询、辅助运营等服务，旨在满足企业数字化阅读需求。
+                        <h5>软象简介</h5>
+                        <p>软象是万象云智公司推出的一站式移动阅读服务，旨在满足企业数字阅读个性化需求。为用户快速搭建移动阅读应用，全方位协助运营，实现内容变现。</p>
+                        <h5>被窝阅读</h5>
+                        <p>被窝阅读是软象团队推出的数字阅读产品，包括APP、公众号、H5，支持需求定制，覆盖全行业应用场景。</p>
                     </li>
                 </ul>
             </div>
@@ -104,9 +119,9 @@
     			<li class="item"><a href="../index.html#function">产品功能</a></li>
     			<li class="item"><a href="../price/index.html">产品定价</a></li>
     			<li class="item"><a href="../custom/index.html">定制服务</a></li>
-    			<li class="item"><a href="">免费升级</a></li>
-    			<li class="item"><a href="">版权合作</a></li>
-    			<li class="item"><a href="">7*24小时服务</a></li>
+    			<li class="item shangqiao"><a href="javascript:void(0)">免费升级</a></li>
+                <li class="item shangqiao"><a href="javascript:void(0)">版权合作</a></li>
+                <li class="item shangqiao"><a href="javascript:void(0)">7*24小时服务</a></li>
     		</ul>
     		<ul class="scenes">
     			<li class="tit">服务场景</li>
@@ -131,7 +146,7 @@
     </footer>
     <div class="fixed">
     	<ul>
-    		<li><img class="not" src="../common/images/fixed-1.png" alt=""><img class="select" src="../common/images/fixed-1-s.png" alt=""></li>
+    		<li class="shangqiao"><img class="not" src="../common/images/fixed-1.png" alt=""><img class="select" src="../common/images/fixed-1-s.png" alt=""></li>
     		<li>
     			<img class="not" src="../common/images/fixed-2.png" alt=""><img class="select" src="../common/images/fixed-2-s.png" alt="">
     			<div class="text phone">电话：13070187708</div>
@@ -166,16 +181,42 @@
                 }
             })
         };
+        function getArticle(id){
+            $.ajax({
+                url:'http://localhost:3000/getArticleData?id='+id,
+                type: "GET",
+                success:function(res){
+                    console.log(res)
+                    rendArticle(res)
+                }
+            })
+        };
+        function rendArticle(res){
+            $('.detial .top span').html(res.items.date)
+            $('.detial .bot h4').html(res.items.title)
+            $('.detial .bot p').html(res.items.content)
+        }
         function rendList(){
             var listHtml = ''
             data.list.forEach(function(element){
                 listHtml+='<li><p>'+element.title+'</p><span>'+element.date+'</span></li>'
             })
             $('.document .right .content .list ul').html(listHtml)
+            $('.document .right .content .list ul li').click(function(){
+                getArticle(data.list[$(this).index()].id)
+                $('.page').hide()
+                $('.detial').show()
+            })
         };
         function initPage(){
             data.maxPage = Math.ceil(data.total/10)
             console.log(data.maxPage)
+            // if($("#page .page-content .item")){
+            //     $("#page .page-content .item").forEach(function(element){
+            //         if($(element).text()==data)
+            //     })
+            // }
+            
             rendPage()
         }
         function rendPage(isSclice){
@@ -252,6 +293,10 @@
                 $('.right .list').hide()
                 $('.right .article').show()
             }
+        })
+        $('.detial p').click(function(){
+            $('.page').show()
+            $('.detial').hide()
         })
         init(1,3)
     })

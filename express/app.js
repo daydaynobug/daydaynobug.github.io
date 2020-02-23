@@ -28,5 +28,12 @@ app.get('/getArticleList',function(req,res){
 		})
 	}
 })
+app.get('/getArticleData',function(req,res){
+	let query = req.query
+	let data = JSON.parse(fs.readFileSync("./articleData.json").toString())
+	res.send({
+		items: data
+	})
+})
 
 app.listen(3000, () => console.log('app listening on port 3000!'))
