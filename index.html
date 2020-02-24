@@ -66,7 +66,7 @@
     	</div>
     </section>
 
-	<section class="second-nav" id="second-nav">
+	<section class="second-nav" style="padding-top: 0px;" id="second-nav">
 		<div class="nav">
 			<div class="menu">
 				<ul>
@@ -619,6 +619,7 @@
 </html>
 <script>
 	var mySwiper = new Swiper('.swiper-container', {//初始化Swiper
+		effect : 'cube',
 	    autoplay: {//自动切换
 	       delay: 2000,
 	       stopOnLastSlide: false,
@@ -632,7 +633,7 @@
 	       el: '.swiper-pagination',
 	       clickable :true,
 	    },
-	    loop : true,//循环
+	    loop : true//循环
 	})
 	mySwiper.el.onmouseover = function(){ //鼠标放上暂停轮播
       mySwiper.autoplay.stop();
