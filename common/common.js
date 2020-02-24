@@ -6,11 +6,16 @@ var _hmt = _hmt || [];
     s.parentNode.insertBefore(hm, s);
 })();
 $(document).ready(function () {
-	$('.list .item').eq(1).hover(function(){
-	    $(".down").show()
+	$('.fix-top-nav .list .item').eq(1).hover(function(){
+	    $(".fix-top-nav .down").show()
 	},function(){
-	    $(".down").hide()
+	    $(".fix-top-nav .down").hide()
 	});
+    $('header .list .item').eq(1).hover(function(){
+        $("header .down").show()
+    },function(){
+        $("header .down").hide()
+    });
 	$("#back-top").click(function() {
 	    $('body,html').animate({
 	      scrollTop: 0
@@ -23,4 +28,12 @@ $(document).ready(function () {
             $('#nb_icon_wrap').click();
         }
     });
+    $(window).scroll(function(){
+    	var sTop = $(window).scrollTop()
+    	if (sTop<50) {
+    		$('.fix-top-nav').fadeOut()
+    	}else{
+    		$('.fix-top-nav').fadeIn()
+    	}
+    })
 })
