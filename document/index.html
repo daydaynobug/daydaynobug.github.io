@@ -98,11 +98,11 @@
                     <li class="list" style="display: none">
                         <div class="page">
                             <ul></ul>
-                            <div id="page">
+                            <div id="page" style="display: none;">
                                 <div class="page-tou"><img src="images/left-head.png" alt=""></div>
                                 <div class="page-prev"><img src="images/left.png" alt=""></div>
                                 <div class="page-content">
-                                    <div class="item active">1</div>
+                                    <!-- <div class="item active">1</div> -->
                                     <!-- <div class="item">2</div>
                                     <div class="item">3</div>
                                     <div class="item">...</div>
@@ -257,6 +257,7 @@
         }
         function rendPage(isSclice){
             var pageHtml = ''
+            $('#page').show()
             if(data.maxPage>5){
                 if(data.maxPage-data.page>=5){
                     for (var i = 0; i < 5; i++) {
@@ -273,10 +274,12 @@
                         pageHtml+='<div class="item '+(data.page==data.maxPage+i-4?"active":"")+'">'+(data.maxPage+i-4)+'</div>'
                     }
                 }
-            }else{
+            }else if(data.maxPage<=5&&data.maxPage>1){
                for (var i = 0; i < data.maxPage; i++) {
                     pageHtml+='<div class="item '+(data.page==i+1?"active":"")+'">'+(i+1)+'</div>'
                 }
+            }else{
+                $('#page').hide()
             }
             $('#page .page-content').html(pageHtml)
         }
