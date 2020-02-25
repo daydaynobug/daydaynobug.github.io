@@ -328,11 +328,15 @@
                 $(this).siblings().removeClass('active');
                 $('.right .list').show()
                 $('.right .article').hide()
+                $('.page').show()
+                $('.detial').hide()
             }else{
                 $(this).addClass('active');
                 $(this).siblings().removeClass('active');
                 $('.right .list').hide()
                 $('.right .article').show()
+                $('.page').show()
+                $('.detial').hide()
             }
         })
         $('.detial p').click(function(){
