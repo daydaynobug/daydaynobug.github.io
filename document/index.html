@@ -79,7 +79,7 @@
     	</div>
     </header>
     
-    <section class="document" style="background: #F7F4F8">
+    <section class="document" style="background: #f5f5f5">
         <div class="container">
             <div class="left">
                 <ul>
@@ -204,40 +204,41 @@
             getArticleList(data.category,data.page)
         };
         function getArticleList(category,page){
-            // $.ajax({
-            //     url:'http://localhost:3000/getArticleList?category='+category+'&page='+page,
-            //     type: "GET",
-            //     success:function(res){
-            //         data.category=category
-            //         data.page=page
-            //         data.total = res.totalCount
-            //         data.list = res.items
-            //         initPage()
-            //         rendList()
-            //     }
-            // })
-            $.getJSON("../express/articleList.json", function (res) {
-                data.category=category
-                data.page=page
-                data.total = res.totalCount
-                data.list = res.items
-                initPage()
-                rendList()
+            $.ajax({
+                url:'/api/site/article-list?category='+category+'&page='+page,
+                type: "GET",
+                success:function(res){
+                    console.log(res)
+                    data.category=category
+                    data.page=page
+                    data.total = res.totalCount
+                    data.list = res.items
+                    initPage()
+                    rendList()
+                }
             })
+            // $.getJSON("../express/articleList.json", function (res) {
+            //     data.category=category
+            //     data.page=page
+            //     data.total = res.totalCount
+            //     data.list = res.items
+            //     initPage()
+            //     rendList()
+            // })
         };
         function getArticle(id){
-            // $.ajax({
-            //     url:'http://localhost:3000/getArticleData?id='+id,
-            //     type: "GET",
-            //     success:function(res){
-            //         console.log(res)
-            //         rendArticle(res)
-            //     }
-            // })
-            $.getJSON("../express/articleData.json", function (res) {
-                console.log(res)
-                rendArticle(res)
+            $.ajax({
+                url:'/api/site/article-data?id='+id,
+                type: "GET",
+                success:function(res){
+                    console.log(res)
+                    rendArticle(res)
+                }
             })
+            // $.getJSON("../express/articleData.json", function (res) {
+            //     console.log(res)
+            //     rendArticle(res)
+            // })
         };
         function rendArticle(res){
             $('.detial .top span').html(res.date)
@@ -366,11 +367,17 @@
         }
         let cate = getQueryVariable('category')
         let page = getQueryVariable('page')
+        let id = getQueryVariable('id')
         if(cate){
             if(page){
                 init(cate,page)
             }else{
                 init(cate,1)
+            }
+            if(id){
+                getArticle(id)
+                $('.page').hide()
+                $('.detial').show()
             }
         }
         
