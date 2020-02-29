@@ -16,7 +16,7 @@
     <section class="fix-top-nav" style="display: none">
         <div class="container">
             <div class="nav">
-                <img src="../common/images/logo-b.png" alt="logo">
+                <a href="../index.html"><img src="../common/images/logo-b.png" alt="logo"></a>
                 <div class="menu">
                     <ul class="list">
                         <li class="item"><a href="../index.html">首页</a></li>
@@ -118,8 +118,8 @@
                                 <span>2018-12-28</span>
                             </div>
                             <div class="bot">
-                                <h4>版权问题如何解决</h4>
-                                <p>软象提供一定量的正版版权资源接入系统（需要和资源方签署分成合作协议）。同时配备多个行内资深专家提供免费答疑，介绍版权资源，进行行业交流，协助运营等服务。详情可联系客服。</p>
+                                <h4></h4>
+                                <p></p>
                             </div>
                         </div>
                     </li>
@@ -252,6 +252,9 @@
             })
             $('.document .right .content .list ul').html(listHtml)
             $('.document .right .content .list ul li').click(function(){
+                $('.detial .top span').html('')
+                $('.detial .bot h4').html('')
+                $('.detial .bot p').html('')
                 getArticle(data.list[$(this).index()].id)
                 $('.page').hide()
                 $('.detial').show()
@@ -352,7 +355,7 @@
                 $('.detial').hide()
             }
         })
-        $('.detial p').click(function(){
+        $('.detial .top p').click(function(){
             $('.page').show()
             $('.detial').hide()
         })

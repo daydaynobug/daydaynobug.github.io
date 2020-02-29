@@ -498,10 +498,10 @@
 			<div class="news">
 				<h4>新闻动态<span>/News Information</span></h4>
 				<ul>
-					<a href="./document/index.html?category=6&id=1"><li>
+					<!-- <a href="./document/index.html?category=6&id=1"><li>
 						<img src="./images/news-1.png" alt="news">
 						<div>
-							<h5>被窝读书小说版权计划正式启动</h5>
+							<h5>从第二届中国“网络文学+”大会看IP玩法新突破</h5>
 							<p class="text">目前被窝读书提供一定量的正版版权资源接入、另外配备原创文学行业内多个知名专家全方位资源支持、特聘专家来源阅文集团、纵横中文网、中文在线、凤凰书城...</p>
 							<p class="date">2019-12-28</p>
 						</div>
@@ -529,34 +529,34 @@
 							<p class="text">2018年9月16日，第二届中国“网络文学+”大会在北京亦创国际会展中心圆满落幕。本届大会以“网络正能量，文学新高峰”为主题，吸引大批行业精英、文学名家...</p>
 							<p class="date">2019-11-18</p>
 						</div>
-					</li></a>
+					</li></a> -->
 				</ul>
 			</div>
 			<div class="other">
 				<div class="ask">
 					<h4>常见问题</h4>
 					<ul>
-						<li><a href="./document/index.html?category=1&id=1">被窝读书简介</a></li>
+						<!-- <li><a href="./document/index.html?category=0">被窝读书简介</a></li>
 						<li><a href="./document/index.html?category=1&id=1">产品适合什么内容？</a></li>
-						<li><a href="./document/index.html?category=1&id=1">版权问题如何解决？</a></li>
-						<li><a href="./document/index.html?category=1&id=1">怎么启动运营？</a></li>
-						<li><a href="./document/index.html?category=1&id=1">系统抗压能力如何？</a></li>
-						<li><a href="./document/index.html?category=1&id=1">什么是公众号分销系统？</a></li>
-						<li><a href="./document/index.html?category=1&id=1">已经有小说网站，怎么与被窝读书合...</a></li>
-						<li><a href="./document/index.html?category=1&id=1">系统搭建好需要多少钱？有什么增值...</a></li>
+						<li><a href="./document/index.html?category=1&id=3">版权问题如何解决？</a></li>
+						<li><a href="./document/index.html?category=1&id=7">怎么启动运营？</a></li>
+						<li><a href="./document/index.html?category=1&id=2">系统抗压能力如何？</a></li>
+						<li><a href="./document/index.html?category=1&id=8">什么是公众号分销系统？</a></li>
+						<li><a href="./document/index.html?category=1&id=9">是否支持后台采集内容？</a></li>
+						<li><a href="./document/index.html?category=1&id=6">已经有小说网站，怎么与被窝读书合...</a></li> -->
 					</ul>
 				</div>
 				<div class="version">
 					<h4>版本记录</h4>
 					<ul>
-						<a href="./document/index.html?category=7&id=1"><li>V3.1.0 <span>2019.12.29</span></li></a>
-						<a href="./document/index.html?category=7&id=1"><li>V3.0.0 <span>2019.12.07</span></li></a>
-						<a href="./document/index.html?category=7&id=1"><li>V2.9.10 <span>2019.12.01</span></li></a>
-						<a href="./document/index.html?category=7&id=1&id=1"><li>V2.9.9 <span>2019.11.27</span></li></a>
-						<a href="./document/index.html?category=7&id=1"><li>V2.9.8 <span>2019.11.06</span></li></a>
-						<a href="./document/index.html?category=7&id=1"><li>V2.9.7 <span>2019.11.06</span></li></a>
-						<a href="./document/index.html?category=7&id=1"><li>V2.9.6 <span>2019.11.06</span></li></a>
-						<a href="./document/index.html?category=7&id=1"><li>V2.9.5 <span>2019.11.06</span></li></a>
+						<!-- <a href="./document/index.html?category=7&id=16"><li>V3.1.1 <span>2020.01.18</span></li></a>
+						<a href="./document/index.html?category=7&id=14"><li>V3.1.0 <span>2019.12.07</span></li></a>
+						<a href="./document/index.html?category=7&id=15"><li>V3.0.0 <span>2019.8.21</span></li></a>
+						<a href="./document/index.html?category=7&id=17"><li>V2.1.0 <span>2019-04-21</span></li></a>
+						<a href="./document/index.html?category=7&id=18"><li>V2.0.8 <span>2019.03.21</span></li></a>
+						<a href="./document/index.html?category=7&id=19"><li>V2.0.7 <span>2019.03.07</span></li></a>
+						<a href="./document/index.html?category=7&id=20"><li>V2.0.6 <span>2019.02.23</span></li></a>
+						<a href="./document/index.html?category=7&id=21"><li>V2.0.5 <span>2019.02.19</span></li></a> -->
 					</ul>
 				</div>
 			</div>
@@ -642,6 +642,59 @@
       mySwiper.autoplay.start();
     }
 </script>
+
+<script>
+	$(document).ready(function(){
+		function getList(category){
+			$.ajax({
+                url:'/api/site/article-list?category='+category+'&page=1',
+                type: "GET",
+                success:function(res){
+                    if(category==6){
+                    	rendNews(res.items)
+                    }else if(category==1){
+                    	rendAsk(res.items)
+                    }else{
+                    	rendVersion(res.items)
+                    }
+                }
+            })
+		}
+		function rendNews(items){
+			var newsHtml = ''
+			for (var i = 0; i < items.length; i++) {
+				if(i<4){
+					newsHtml+='<a href="./document/index.html?category='+items[i].category+'&id='+items[i].id+'"><li>'
+					newsHtml+='<img src="'+items[i].cover+'" alt="news">'
+					newsHtml+='<div><h5>'+items[i].title+'</h5><p class="text">'+items[i].content+'</p><p class="date">'+items[i].date+'</p></div></li></a>'
+				}
+			}
+			$('.news ul').html(newsHtml)
+		}
+		function rendAsk(items){
+			var askHtml = ''
+			for (var i = 0; i < items.length; i++) {
+				if(i<8){
+					askHtml+='<li><a href="./document/index.html?category='+items[i].category+'&id='+items[i].id+'">'+items[i].title+'</a></li>'
+				}
+			}
+			$('.ask ul').html(askHtml)
+		}
+		function rendVersion(items){
+			var versionHtml = ''
+			for (var i = 0; i < items.length; i++) {
+				if(i<8){
+					versionHtml+='<a href="./document/index.html?category='+items[i].category+'&id='+items[i].id+'"><li>'+items[i].title+' <span>'+items[i].date+'</span></li></a>'
+				}
+			}
+			$('.version ul').html(versionHtml)
+		}
+		getList(6)
+		getList(1)
+		getList(7)
+	})
+</script>
+
 <script>
 	$(document).ready(function () {
 		$('.button-no').click(function(){
@@ -737,18 +790,18 @@
 				$("#second-nav").removeClass('nav-fixed')
 				$(".nav-place").hide()
 			}
-			console.log(sTop,aTop,fTop,cTop,mTop,hTop)
+			// console.log(sTop,aTop,fTop,cTop,mTop,hTop)
 			if(aTop<=sTop&&sTop<fTop){
-				console.log(1)
+				// console.log(1)
 				$('.second-nav .menu li').removeClass('active')
 				$('.second-nav .menu li').eq(0).addClass('active')
 			}else if(fTop<=sTop&&sTop<cTop){
-				console.log(2)
+				// console.log(2)
 
 				$('.second-nav .menu li').removeClass('active')
 				$('.second-nav .menu li').eq(1).addClass('active')
 			}else if(cTop<=sTop&&sTop<mTop){
-				console.log(3)
+				// console.log(3)
 
 				$('.second-nav .menu li').removeClass('active')
 				$('.second-nav .menu li').eq(2).addClass('active')

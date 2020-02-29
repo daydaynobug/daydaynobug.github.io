@@ -17,7 +17,7 @@
     <section class="fix-top-nav" style="display: none">
         <div class="container">
             <div class="nav">
-                <img src="../common/images/logo-b.png" alt="logo">
+                <a href="../index.html"><img src="../common/images/logo-b.png" alt="logo"></a>
                 <div class="menu">
                     <ul class="list">
                         <li class="item"><a href="../index.html">首页</a></li>
@@ -142,7 +142,7 @@
             <div class="news">
                 <h4>新闻动态<span>/News Information</span></h4>
                 <ul>
-                    <a href="../document/index.html?category=6&id=1"><li>
+                    <<!-- a href="../document/index.html?category=6&id=1"><li>
                         <img src="./images/news-1.png" alt="news">
                         <div>
                             <h5>被窝读书小说版权计划正式启动</h5>
@@ -173,34 +173,34 @@
                             <p class="text">2018年9月16日，第二届中国“网络文学+”大会在北京亦创国际会展中心圆满落幕。本届大会以“网络正能量，文学新高峰”为主题，吸引大批行业精英、文学名家...</p>
                             <p class="date">2019-11-18</p>
                         </div>
-                    </li></a>
+                    </li></a> -->
                 </ul>
             </div>
             <div class="other">
                 <div class="ask">
                     <h4>常见问题</h4>
                     <ul>
-                        <li><a href="../document/index.html?category=1&id=1">被窝读书简介</a></li>
+                        <!-- <li><a href="../document/index.html?category=1&id=1">被窝读书简介</a></li>
                         <li><a href="../document/index.html?category=1&id=1">产品适合什么内容？</a></li>
                         <li><a href="../document/index.html?category=1&id=1">版权问题如何解决？</a></li>
                         <li><a href="../document/index.html?category=1&id=1">怎么启动运营？</a></li>
                         <li><a href="../document/index.html?category=1&id=1">系统抗压能力如何？</a></li>
                         <li><a href="../document/index.html?category=1&id=1">什么是公众号分销系统？</a></li>
                         <li><a href="../document/index.html?category=1&id=1">已经有小说网站，怎么与被窝读书合...</a></li>
-                        <li><a href="../document/index.html?category=1&id=1">系统搭建好需要多少钱？有什么增值...</a></li>
+                        <li><a href="../document/index.html?category=1&id=1">系统搭建好需要多少钱？有什么增值...</a></li> -->
                     </ul>
                 </div>
                 <div class="version">
                     <h4>版本记录</h4>
                     <ul>
-                        <a href="../document/index.html?category=7&id=1"><li>V3.1.0 <span>2019.12.29</span></li></a>
+                        <!-- <a href="../document/index.html?category=7&id=1"><li>V3.1.0 <span>2019.12.29</span></li></a>
                         <a href="../document/index.html?category=7&id=1"><li>V3.0.0 <span>2019.12.07</span></li></a>
                         <a href="../document/index.html?category=7&id=1"><li>V2.9.10 <span>2019.12.01</span></li></a>
                         <a href="../document/index.html?category=7&id=1"><li>V2.9.9 <span>2019.11.27</span></li></a>
                         <a href="../document/index.html?category=7&id=1"><li>V2.9.8 <span>2019.11.06</span></li></a>
                         <a href="../document/index.html?category=7&id=1"><li>V2.9.7 <span>2019.11.06</span></li></a>
                         <a href="../document/index.html?category=7&id=1"><li>V2.9.6 <span>2019.11.06</span></li></a>
-                        <a href="../document/index.html?category=7&id=1"><li>V2.9.5 <span>2019.11.06</span></li></a>
+                        <a href="../document/index.html?category=7&id=1"><li>V2.9.5 <span>2019.11.06</span></li></a> -->
                     </ul>
                 </div>
             </div>
@@ -262,8 +262,53 @@
 </body>
 </html>
 <script>
-	
-</script>
-<script>
-	
+    $(document).ready(function(){
+        function getList(category){
+            $.ajax({
+                url:'/api/site/article-list?category='+category+'&page=1',
+                type: "GET",
+                success:function(res){
+                    if(category==6){
+                        rendNews(res.items)
+                    }else if(category==1){
+                        rendAsk(res.items)
+                    }else{
+                        rendVersion(res.items)
+                    }
+                }
+            })
+        }
+        function rendNews(items){
+            var newsHtml = ''
+            for (var i = 0; i < items.length; i++) {
+                if(i<4){
+                    newsHtml+='<a href="../document/index.html?category='+items[i].category+'&id='+items[i].id+'"><li>'
+                    newsHtml+='<img src="'+items[i].cover+'" alt="news">'
+                    newsHtml+='<div><h5>'+items[i].title+'</h5><p class="text">'+items[i].content+'</p><p class="date">'+items[i].date+'</p></div></li></a>'
+                }
+            }
+            $('.news ul').html(newsHtml)
+        }
+        function rendAsk(items){
+            var askHtml = ''
+            for (var i = 0; i < items.length; i++) {
+                if(i<8){
+                    askHtml+='<li><a href="../document/index.html?category='+items[i].category+'&id='+items[i].id+'">'+items[i].title+'</a></li>'
+                }
+            }
+            $('.ask ul').html(askHtml)
+        }
+        function rendVersion(items){
+            var versionHtml = ''
+            for (var i = 0; i < items.length; i++) {
+                if(i<8){
+                    versionHtml+='<a href="../document/index.html?category='+items[i].category+'&id='+items[i].id+'"><li>'+items[i].title+' <span>'+items[i].date+'</span></li></a>'
+                }
+            }
+            $('.version ul').html(versionHtml)
+        }
+        getList(6)
+        getList(1)
+        getList(7)
+    })
 </script>

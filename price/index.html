@@ -17,7 +17,7 @@
     <section class="fix-top-nav" style="display: none">
         <div class="container">
             <div class="nav">
-                <img src="../common/images/logo-b.png" alt="logo">
+                <a href="../index.html"><img src="../common/images/logo-b.png" alt="logo"></a>
                 <div class="menu">
                     <ul class="list">
                         <li class="item"><a href="../index.html">首页</a></li>
@@ -546,6 +546,7 @@
 	$(document).ready(function(){
         var curState = 0
         var topArr = []
+        var isClick = false
         for (var i = 0; i < $('.left-nav ul li').length; i++) {
             topArr.push($('#table-'+i).offset().top-140-80)
         }
@@ -554,6 +555,10 @@
             $(this).addClass('active')
             $(this).siblings().removeClass('active')
             $("html,body").animate({scrollTop:$('#table-'+$(this).index()).offset().top-140-80},500)
+            isClick = true
+            setTimeout(function(){
+                isClick = false
+            },550) 
         })
         $('.all').click(function(){
             $('.table .content ul').css({'height':'auto'})
@@ -611,8 +616,10 @@
                 }
             }
             console.log(cur)
-            $('.left-nav ul li').eq(cur).addClass('active')
-            $('.left-nav ul li').eq(cur).siblings().removeClass('active')
+            if(!isClick){
+                $('.left-nav ul li').eq(cur).addClass('active')
+                $('.left-nav ul li').eq(cur).siblings().removeClass('active')
+            }
         })
     })
 </script>
